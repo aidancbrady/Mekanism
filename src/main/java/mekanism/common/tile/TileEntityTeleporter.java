@@ -1,15 +1,15 @@
 package mekanism.common.tile;
 
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
+
+import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import mekanism.api.Action;
@@ -42,6 +42,7 @@ import mekanism.common.util.NBTUtils;
 import mekanism.common.util.WorldUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PortalInfo;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
@@ -63,13 +64,20 @@ import net.minecraftforge.fml.server.ServerLifecycleHooks;
 
 public class TileEntityTeleporter extends TileEntityMekanism implements IChunkLoader {
 
+    private static final ImmutableMap<Direction.Axis, ImmutableList<Direction>> DIRECTIONS_BY_AXIS = ImmutableMap.of(
+            Direction.Axis.X, ImmutableList.of(Direction.EAST, Direction.WEST),
+            Direction.Axis.Y, ImmutableList.of(Direction.UP, Direction.DOWN),
+            Direction.Axis.Z, ImmutableList.of(Direction.SOUTH, Direction.NORTH)
+    );
+    private static final int MAX_TELEPORTER_SIZE = 10;
+
     public final Set<UUID> didTeleport = new ObjectOpenHashSet<>();
     private AxisAlignedBB teleportBounds;
     public int teleDelay = 0;
     public boolean shouldRender;
     @Nullable
     private Direction frameDirection;
-    private boolean frameRotated;
+    private int frameHeight;
     private EnumColor color;
 
     /**
@@ -139,10 +147,6 @@ public class TileEntityTeleporter extends TileEntityMekanism implements IChunkLo
     @Override
     protected void onUpdateServer() {
         super.onUpdateServer();
-        if (teleportBounds == null && frameDirection != null) {
-            resetBounds();
-        }
-
         status = canTeleport();
         if (MekanismUtils.canFunction(this) && status == 1 && teleDelay == 0) {
             teleport();
@@ -186,14 +190,6 @@ public class TileEntityTeleporter extends TileEntityMekanism implements IChunkLo
         }
     }
 
-    private void resetBounds() {
-        if (frameDirection == null) {
-            teleportBounds = null;
-        } else {
-            teleportBounds = getTeleporterBoundingBox(frameDirection);
-        }
-    }
-
     /**
      * Checks whether, or why not, this teleporter can teleport entities.
      *
@@ -203,10 +199,10 @@ public class TileEntityTeleporter extends TileEntityMekanism implements IChunkLo
         Direction direction = getFrameDirection();
         if (direction == null) {
             frameDirection = null;
+            teleportBounds = null;
             return 2;
         } else if (frameDirection != direction) {
             frameDirection = direction;
-            resetBounds();
         }
         Coord4D closestCoords = getClosest();
         if (closestCoords == null) {
@@ -269,7 +265,10 @@ public class TileEntityTeleporter extends TileEntityMekanism implements IChunkLo
         BlockPos target = coord.getPos();
         if (teleporter.frameDirection == null) {
             target = target.up();
-        } else if (teleporter.frameDirection == Direction.DOWN) {
+        } else if (teleporter.frameDirection == Direction.DOWN
+                && teleporter.teleportBounds.maxY - teleporter.teleportBounds.minY > 3) {
+            // If the teleporter block is at the top of the frame and there is room,
+            // push the target down by one to avoid bumping the player's head.
             target = target.down(2);
         } else {
             target = target.offset(teleporter.frameDirection);
@@ -355,61 +354,178 @@ public class TileEntityTeleporter extends TileEntityMekanism implements IChunkLo
      */
     @Nullable
     private Direction getFrameDirection() {
-        for (Direction direction : EnumUtils.DIRECTIONS) {
-            if (hasFrame(direction, false)) {
-                frameRotated = false;
-                return direction;
-            } else if (hasFrame(direction, true)) {
-                frameRotated = true;
-                return direction;
-            }
-        }
-        return null;
+        // Cache the chunks we are looking up to check the frames of
+        Long2ObjectMap<IChunk> chunkMap = new Long2ObjectOpenHashMap<>();
+
+        // Both neighbor blocks need to be frame on the axis of the base
+        List<Direction.Axis> validAxes =
+                EnumSet.allOf(Direction.Axis.class).stream()
+                        .filter(axis ->
+                                DIRECTIONS_BY_AXIS.get(axis).stream()
+                                        .allMatch(direction -> isFrame(chunkMap, direction)))
+                        .collect(Collectors.toList());
+
+        List<Direction> possibleDirections = Arrays.stream(EnumUtils.DIRECTIONS)
+                // The next block in the frame direction should be open.
+                .filter(direction -> isPassable(chunkMap, direction))
+                // At least one perpendicular axis must be frame blocks
+                .filter(direction -> validAxes.stream().anyMatch(axis -> !axis.equals(direction.getAxis())))
+                .collect(Collectors.toList());
+
+        // Look up to 10 blocks away in each possible frame direction
+        teleportBounds = null;
+        frameHeight = 0;
+        return possibleDirections.stream()
+                .flatMap(
+                        direction -> {
+                            BlockPos position = pos.offset(direction);
+                            for (int i = 2; i < MAX_TELEPORTER_SIZE; i++) {
+                                position = position.offset(direction);
+                                if (isFrame(chunkMap, position)) {
+                                    // Look for a complete frame with this second frame block in the teleporter column.
+                                    Optional<AxisAlignedBB> completeFrame =
+                                            getCompleteFrame(chunkMap, i, direction, validAxes);
+                                    if (completeFrame.isPresent()) {
+                                        teleportBounds = completeFrame.get();
+                                        frameHeight = i;
+                                        return Stream.of(direction);
+                                    }
+                                }
+                                if (!isPassable(chunkMap, position)) {
+                                    break;
+                                }
+                            }
+                            return Stream.empty();
+                        })
+                .findFirst().orElse(null);
     }
 
     /**
-     * Checks whether this Teleporter has a Frame in the given Direction.
+     * Checks whether this Teleporter has a Frame in the given Direction on any of the provided axes.
      *
+     * @param chunkMap a cache of the blocks that have been checked
+     * @param height the distance, in the direction, to the closest frame block to the teleporter
      * @param direction the direction from the Teleporter block in which the frame should be.
-     * @param rotated   whether the frame is rotated by 90 degrees.
+     * @param validAxes a list possible orientations of the frame
      *
-     * @return whether the frame exists.
+     * @return a bounding box of the frame, if it exists
      */
-    private boolean hasFrame(Direction direction, boolean rotated) {
-        int alternatingX = 0;
-        int alternatingY = 0;
-        int alternatingZ = 0;
-        if (rotated) {
-            if (direction == Direction.NORTH || direction == Direction.SOUTH) {
-                alternatingX = 1;
-            } else {
-                alternatingZ = 1;
+    private Optional<AxisAlignedBB> getCompleteFrame(
+            Long2ObjectMap<IChunk> chunkMap, Integer height, Direction direction, List<Direction.Axis> validAxes) {
+        for (Direction.Axis axis : validAxes) {
+            if (!direction.getAxis().equals(axis)) {
+                Optional<AxisAlignedBB> frame = hasFrame(chunkMap, direction, height, axis);
+                if (frame.isPresent()) {
+                    return frame;
+                }
             }
-        } else if (direction == Direction.UP || direction == Direction.DOWN) {
-            alternatingX = 1;
-        } else {
-            alternatingY = 1;
         }
-        int xComponent = direction.getXOffset();
-        int yComponent = direction.getYOffset();
-        int zComponent = direction.getZOffset();
-        //Cache the chunks we are looking up to check the frames of
-        Long2ObjectMap<IChunk> chunkMap = new Long2ObjectOpenHashMap<>();
-        return isFramePair(chunkMap, 0, alternatingX, 0, alternatingY, 0, alternatingZ) &&
-               isFramePair(chunkMap, xComponent, alternatingX, yComponent, alternatingY, zComponent, alternatingZ) &&
-               isFramePair(chunkMap, 2 * xComponent, alternatingX, 2 * yComponent, alternatingY, 2 * zComponent, alternatingZ) &&
-               isFramePair(chunkMap, 3 * xComponent, alternatingX, 3 * yComponent, alternatingY, 3 * zComponent, alternatingZ) &&
-               isFrame(chunkMap, 3 * xComponent, 3 * yComponent, 3 * zComponent);
+        return Optional.empty();
     }
 
-    private boolean isFramePair(Long2ObjectMap<IChunk> chunkMap, int xOffset, int alternatingX, int yOffset, int alternatingY, int zOffset, int alternatingZ) {
-        return isFrame(chunkMap, xOffset - alternatingX, yOffset - alternatingY, zOffset - alternatingZ) &&
-               isFrame(chunkMap, xOffset + alternatingX, yOffset + alternatingY, zOffset + alternatingZ);
+    /**
+     * Checks whether this Teleporter has a Frame in the given Direction on the given axis.
+     *
+     * @param chunkMap a cache of the blocks that have been checked
+     * @param direction the direction from the Teleporter block in which the frame should be.
+     * @param height the distance, in the direction, to the closest frame block to the teleporter
+     * @param axis the possible orientation of the frame
+     *
+     * @return a bounding box of the frame, if it exists
+     */
+    private Optional<AxisAlignedBB> hasFrame(
+            Long2ObjectMap<IChunk> chunkMap, Direction direction, int height, Direction.Axis axis) {
+        Direction positive = DIRECTIONS_BY_AXIS.get(axis).get(0);
+        Direction negative = DIRECTIONS_BY_AXIS.get(axis).get(1);
+
+        Optional<Integer> firstPillar =
+                findCompleteFramePillar(chunkMap, direction, positive, height,
+                        MAX_TELEPORTER_SIZE - 2 /* Teleporter column and minimum for other pillar */);
+        if (!firstPillar.isPresent()) {
+            return Optional.empty();
+        }
+
+        Optional<Integer> secondPillar =
+                findCompleteFramePillar(chunkMap, direction, negative, height,
+                        MAX_TELEPORTER_SIZE - 1 /* Teleporter column */ - firstPillar.get());
+        if (!secondPillar.isPresent()) {
+            return Optional.empty();
+        }
+
+        BlockPos corner1 = pos.offset(positive, firstPillar.get());
+        BlockPos corner2 = pos.offset(negative, secondPillar.get()).offset(direction, height);
+        return Optional.of(new AxisAlignedBB(
+                Math.min(corner1.getX(), corner2.getX()),
+                Math.min(corner1.getY(), corner2.getY()),
+                Math.min(corner1.getZ(), corner2.getZ()),
+                Math.max(corner1.getX(), corner2.getX())+1,
+                Math.max(corner1.getY(), corner2.getY())+1,
+                Math.max(corner1.getZ(), corner2.getZ())+1));
     }
 
-    private boolean isFrame(Long2ObjectMap<IChunk> chunkMap, int xOffset, int yOffset, int zOffset) {
-        Optional<BlockState> state = WorldUtils.getBlockState(world, chunkMap, pos.add(xOffset, yOffset, zOffset));
+    private Optional<Integer> findCompleteFramePillar(
+            Long2ObjectMap<IChunk> chunkMap, Direction columnDirection, Direction rowDirection, int height,
+            int searchDistance) {
+        BlockPos possiblePillarBase = pos;
+        for (int i = 1; i <= searchDistance; i++) {
+            possiblePillarBase = possiblePillarBase.offset(rowDirection);
+            if (isCompleteFramePillar(chunkMap, possiblePillarBase, columnDirection, height)) {
+                return Optional.of(i);
+            }
+            if (!isEmptyFrameColumnSection(chunkMap, possiblePillarBase, columnDirection, height)) {
+                return Optional.empty();
+            }
+        }
+        return Optional.empty();
+    }
+
+    private boolean isCompleteFramePillar(
+            Long2ObjectMap<IChunk> chunkMap, BlockPos base, Direction direction, int height) {
+        BlockPos position = base;
+        for (int i = 0; i <=height; i++) {
+            if (!isFrame(chunkMap, position)) {
+                return false;
+            }
+            position = position.offset(direction);
+        }
+        return true;
+    }
+
+    private boolean isEmptyFrameColumnSection(
+            Long2ObjectMap<IChunk> chunkMap, BlockPos base, Direction direction, int height) {
+        BlockPos position = base;
+        if (!isFrame(chunkMap, position)) {
+            return false;
+        }
+        position = position.offset(direction);
+        for (int i=1; i<=height-1; i++) {
+            if (!isPassable(chunkMap, position)) {
+                return false;
+            }
+            position = position.offset(direction);
+        }
+        return isFrame(chunkMap, position);
+    }
+
+    private boolean isFrame(Long2ObjectMap<IChunk> chunkMap, Direction direction) {
+        return isFrame(chunkMap, pos.offset(direction));
+    }
+
+    private boolean isFrame(Long2ObjectMap<IChunk> chunkMap, BlockPos position) {
+        Optional<BlockState> state = WorldUtils.getBlockState(world, chunkMap, position);
         return state.filter(blockState -> blockState.getBlock() instanceof BlockTeleporterFrame).isPresent();
+    }
+
+    private boolean isPassable(Long2ObjectMap<IChunk> chunkMap, Direction direction) {
+        return isPassable(chunkMap, pos.offset(direction));
+    }
+
+    private boolean isPassable(Long2ObjectMap<IChunk> chunkMap, BlockPos position) {
+        Optional<BlockState> state = WorldUtils.getBlockState(world, chunkMap, position);
+        return state.filter(blockState -> {
+            Material material = blockState.getMaterial();
+            return !(material.blocksMovement() || material.isOpaque() || material.isSolid());
+        }).isPresent();
     }
 
     /**
@@ -425,40 +541,12 @@ public class TileEntityTeleporter extends TileEntityMekanism implements IChunkLo
         return frameDirection;
     }
 
-    /**
-     * Gets whether the frame is rotated by 90 degrees around the direction axis.
-     *
-     * @return whether the frame is rotated by 90 degrees.
-     */
-    public boolean frameRotated() {
-        return frameRotated;
-    }
-
     @Nonnull
     @Override
     public AxisAlignedBB getRenderBoundingBox() {
         //Note: If the frame direction is "null" we instead just only mark the teleporter itself.
         Direction frameDirection = getFrameDirection();
-        return frameDirection == null ? new AxisAlignedBB(pos, pos.add(1, 1, 1)) : getTeleporterBoundingBox(frameDirection);
-    }
-
-    private AxisAlignedBB getTeleporterBoundingBox(@Nonnull Direction frameDirection) {
-        //Note: We only include the area inside the frame, we don't bother including the teleporter's block itself
-        switch (frameDirection) {
-            case UP:
-                return new AxisAlignedBB(pos.up(), pos.add(1, 3, 1));
-            case DOWN:
-                return new AxisAlignedBB(pos, pos.add(1, -2, 1));
-            case EAST:
-                return new AxisAlignedBB(pos.east(), pos.add(3, 1, 1));
-            case WEST:
-                return new AxisAlignedBB(pos, pos.add(-2, 1, 1));
-            case NORTH:
-                return new AxisAlignedBB(pos, pos.add(1, 1, -2));
-            case SOUTH:
-                return new AxisAlignedBB(pos.south(), pos.add(1, 1, 3));
-        }
-        throw new IllegalArgumentException("Invalid frame direction");
+        return frameDirection == null ? new AxisAlignedBB(pos, pos.add(1, 1, 1)) : teleportBounds.shrink(0.46);
     }
 
     @Override
