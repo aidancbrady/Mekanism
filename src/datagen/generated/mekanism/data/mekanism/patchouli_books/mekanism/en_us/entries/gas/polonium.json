@@ -1,0 +1,12 @@
+{
+  "name": "gas.mekanism.polonium",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "First stage of $(l:item/pellet_polonium)Polonium Pellet$(/l) production."
+    }
+  ],
+  "read_by_default": true
+}

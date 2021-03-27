@@ -1,0 +1,31 @@
+{
+  "name": "Thermodynamic Conductors",
+  "category": "blocks",
+  "icon": "mekanism:basic_thermodynamic_conductor",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Similar to the Universal Cable, the Thermodynamic Conductor is Mekanism's way of transferring power in the form of heat (essentially a heat pipe).$(2br)Transfer is lossy, depending on the biome the conductor is in. Warmer biomes have a higher transfer efficiency (less heat is lost), while colder biomes are lower (more heat is lost)."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:basic_thermodynamic_conductor",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:advanced_thermodynamic_conductor",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:elite_thermodynamic_conductor",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ultimate_thermodynamic_conductor",
+      "link_recipe": true
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "item.mekanism.dust_coal",
+  "category": "items_metal_and_ore",
+  "icon": "mekanism:dust_coal",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:dust_coal",
+      "link_recipe": true,
+      "text": "Crushed form of Coal"
+    }
+  ],
+  "read_by_default": true
+}

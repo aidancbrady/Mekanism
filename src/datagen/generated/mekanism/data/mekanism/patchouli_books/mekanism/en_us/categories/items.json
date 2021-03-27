@@ -1,0 +1,6 @@
+{
+  "name": "Items List",
+  "description": "A list of the items in Mekanism.",
+  "icon": "mekanism:alloy_infused",
+  "sortnum": 98
+}

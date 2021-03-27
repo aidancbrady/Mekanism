@@ -1,0 +1,52 @@
+{
+  "name": "Osmium",
+  "category": "items_metal_and_ore",
+  "icon": "mekanism:ingot_osmium",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Osmium is a hard, brittle, bluish-white transition metal in the platinum group that is found as a trace element in alloys, mostly in platinum ores.$(p)Osmium is the densest stable element; it is approximately twice as dense as lead and slightly denser than iridium."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:osmium_ore",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:shard_osmium",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:crystal_osmium",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:dust_osmium",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:dirty_dust_osmium",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:clump_osmium",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ingot_osmium",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:nugget_osmium",
+      "link_recipe": true
+    }
+  ],
+  "read_by_default": true
+}

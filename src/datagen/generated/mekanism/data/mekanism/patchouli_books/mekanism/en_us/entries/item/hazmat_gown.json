@@ -1,0 +1,35 @@
+{
+  "name": "Hazmat Suit",
+  "category": "items_gear",
+  "icon": "mekanism:hazmat_gown{\"HideFlags\":2}",
+  "pages": [
+    {
+      "type": "text",
+      "text": "The hazmat suit will protect you from surrounding radiation. You have to wear all the pieces of the hazmat suit in order to receive full protection from radiation. Otherwise, your radiation dosage will increase.$(p)Damage from $(bold)prior$() exposure will continue."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:hazmat_mask{\"HideFlags\":2}",
+      "link_recipe": true,
+      "text": "For your face."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:hazmat_gown{\"HideFlags\":2}",
+      "link_recipe": true,
+      "text": "For your torso."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:hazmat_pants{\"HideFlags\":2}",
+      "link_recipe": true,
+      "text": "For your legs."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:hazmat_boots{\"HideFlags\":2}",
+      "link_recipe": true,
+      "text": "For your feet."
+    }
+  ]
+}

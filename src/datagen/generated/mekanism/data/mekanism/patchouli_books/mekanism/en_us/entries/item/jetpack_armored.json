@@ -1,0 +1,14 @@
+{
+  "name": "item.mekanism.jetpack_armored",
+  "category": "items_gear",
+  "icon": "mekanism:jetpack_armored",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:jetpack_armored",
+      "link_recipe": true,
+      "text": "The Armored Jetpack is an upgraded version of the $(l:item/jetpack)Jetpack$(/l). It is intended to provide 12 armor points, offering slightly better protection than a Diamond Chestplate with Protection IV. Numbers accurate as of Minecraft 1.7.10"
+    }
+  ],
+  "read_by_default": true
+}

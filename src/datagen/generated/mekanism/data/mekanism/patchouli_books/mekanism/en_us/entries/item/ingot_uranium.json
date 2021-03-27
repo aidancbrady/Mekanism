@@ -1,0 +1,52 @@
+{
+  "name": "Uranium",
+  "category": "items_metal_and_ore",
+  "icon": "mekanism:ingot_uranium",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Uranium is a silvery-grey metal in the actinide series of the periodic table. A uranium atom has 92 protons and 92 electrons, of which 6 are valence electrons. Uranium is weakly radioactive because all isotopes of uranium are unstable; the half-lives of its naturally occurring isotopes range between 159,200 years and 4.5 billion years."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:uranium_ore",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:shard_uranium",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:crystal_uranium",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:dust_uranium",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:dirty_dust_uranium",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:clump_uranium",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ingot_uranium",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:nugget_uranium",
+      "link_recipe": true
+    }
+  ],
+  "read_by_default": true
+}

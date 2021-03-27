@@ -1,0 +1,52 @@
+{
+  "name": "Tin",
+  "category": "items_metal_and_ore",
+  "icon": "mekanism:ingot_tin",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Tin is a silvery metal that characteristically has a faint yellow hue. Tin, like indium, is soft enough to be cut without much force."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:tin_ore",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:shard_tin",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:crystal_tin",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:dust_tin",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:dirty_dust_tin",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:clump_tin",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ingot_tin",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:nugget_tin",
+      "link_recipe": true
+    }
+  ],
+  "read_by_default": true
+}

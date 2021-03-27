@@ -1,0 +1,31 @@
+{
+  "name": "Universal Cables",
+  "category": "blocks",
+  "icon": "mekanism:basic_universal_cable",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Universal Cables are Mekanism's way to transfer power. They are capable of transferring Mekanism's power Joules (J), as well as a variety of other power types such as Forge Energy (FE), Thermal Expansion's Redstone Flux (RF), Buildcraft's Minecraftjoules (MJ - display only), and Industrialcraft Energy Unit (EU). This flexibility allows players to mix power generation from different mods while still only using one type of cabling."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:basic_universal_cable",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:advanced_universal_cable",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:elite_universal_cable",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ultimate_universal_cable",
+      "link_recipe": true
+    }
+  ]
+}

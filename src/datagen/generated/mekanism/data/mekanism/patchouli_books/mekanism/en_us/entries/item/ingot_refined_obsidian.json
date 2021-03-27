@@ -1,0 +1,32 @@
+{
+  "name": "Refined Obsidian",
+  "category": "items_metal_and_ore",
+  "icon": "mekanism:ingot_refined_obsidian",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Harder obsidian? Unpossible!$(p)Obsidian reinforced with Osmium in the $(l:block/osmium_compressor)Osmium Compressor$(/l). Can be used to form a Nether Portal"
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:dust_refined_obsidian",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ingot_refined_obsidian",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:nugget_refined_obsidian",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:block_refined_obsidian",
+      "link_recipe": true
+    }
+  ],
+  "read_by_default": true
+}

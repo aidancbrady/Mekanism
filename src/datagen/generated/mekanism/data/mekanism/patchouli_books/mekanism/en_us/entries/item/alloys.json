@@ -1,0 +1,29 @@
+{
+  "name": "Alloys",
+  "category": "items",
+  "icon": "mekanism:alloy_infused",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Crafting components used to make tiered items. Can also be right clicked on Logistical Transporters, Mechanical Pipes, Pressurized Tubes, Thermodynamic Conductors, and Universal Cables to upgrade tiers in-world.$(p)Created in a $(l:block/metallurgic_infuser)Metallurgic Infuser$(/l)."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:alloy_infused",
+      "link_recipe": true,
+      "text": "Redstone infused"
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:alloy_reinforced",
+      "link_recipe": true,
+      "text": "Diamond infused"
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:alloy_atomic",
+      "link_recipe": true,
+      "text": "Refined Obsidian infused"
+    }
+  ]
+}

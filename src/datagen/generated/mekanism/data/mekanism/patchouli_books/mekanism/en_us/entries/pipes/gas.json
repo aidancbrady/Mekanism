@@ -1,0 +1,31 @@
+{
+  "name": "Pressurized Tubes",
+  "category": "blocks",
+  "icon": "mekanism:basic_pressurized_tube",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Pressurized Tubes are used to transport Gases. Similar to their mechanical counterparts, they can be upgraded to higher tiers to increase flow rate and capacity of pumped gases."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:basic_pressurized_tube",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:advanced_pressurized_tube",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:elite_pressurized_tube",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ultimate_pressurized_tube",
+      "link_recipe": true
+    }
+  ]
+}

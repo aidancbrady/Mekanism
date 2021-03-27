@@ -1,0 +1,46 @@
+{
+  "name": "item.mekanism.configurator",
+  "category": "items_gear",
+  "icon": "mekanism:configurator",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:configurator",
+      "link_recipe": true,
+      "text": "The Configurator is a configuration tool for Mekanism machines & pipes.$(p)It comes with several different modes that you can switch between by sneaking and then pressing the Item Mode Switch Key ($(k:key.mekanism.mode))"
+    },
+    {
+      "type": "text",
+      "text": "Mousing over a Mekanism machine or factory will show the color for that side, using the the Configuration Color Scheme. Right clicking will print a message announcing both the color and input/output mode. $(k:sneak) + Right Clicking will cycle through the valid colors for the given sub-mode.",
+      "title": "Configurate"
+    },
+    {
+      "type": "text",
+      "text": "$(li)Grey is no connection (neither in nor out).$(li)Dark Red is input (items, gasses).$(li)Dark Blue is output (items, gasses).$(li)Green is for Energy input (items, cable).$(li)Purple is Infusion item input (for the Metallurgic Infuser)$(li)Yellow is for fluids (for the Pressurized Reaction Chamber)"
+    },
+    {
+      "type": "text",
+      "text": "Additionally, you can interact with any of the cables, pipes, transporters, or tubes to set their connection type between machines/inventory and their redstone sensitivity. Right clicking on the center of the cable/pipe/transporter/tube will toggle sensitivity off/on (default is on). $(k:sneak) + Right clicking on a segment between the center of the cable/etc. and machine will cycle between:$(li)Normal$(li)Pull - try to take from the machine"
+    },
+    {
+      "type": "text",
+      "text": "$(li)Push - try to insert only into the machine$(li)None - no connection. Will not try to push or pull items from the machine."
+    },
+    {
+      "type": "text",
+      "text": "$(k:sneak) + Right Clicking on the machine while in this mode will eject any and all items currently in the machine in random directions. It will not dump fluids or gasses.",
+      "title": "Empty"
+    },
+    {
+      "type": "text",
+      "text": "Right clicking on a face will have that set as \"forward\" while $(k:sneak) + Right clicking will have that set as \"back\" The Energy Cube can have its top and bottom faces designated as \"forward.\"",
+      "title": "Rotate"
+    },
+    {
+      "type": "text",
+      "text": "Behaves like a wrench from most other mods. Right click to rotate the machine clockwise on the ground, $(k:sneak) + Right click to have the machine instantly pried loose as an item (works on cables and pipes, too!)",
+      "title": "Wrench"
+    }
+  ],
+  "read_by_default": true
+}

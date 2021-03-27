@@ -1,0 +1,31 @@
+{
+  "name": "Logistical Transporters",
+  "category": "blocks",
+  "icon": "mekanism:basic_logistical_transporter",
+  "pages": [
+    {
+      "type": "text",
+      "text": "The Logistical Transporter is the basic item transport pipe for Mekanism logistics.$(br)With the Configurator the player can choose to \"paint\" the pipe with colors can can be detected by the pipe's color sorter by $(k:sneak) + right-clicking the center of a transporter with a Configurator.$(br2)It has 2 other cousins called the Diversion Transporter and the Restrictive Transporter."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:basic_logistical_transporter",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:advanced_logistical_transporter",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:elite_logistical_transporter",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ultimate_logistical_transporter",
+      "link_recipe": true
+    }
+  ]
+}

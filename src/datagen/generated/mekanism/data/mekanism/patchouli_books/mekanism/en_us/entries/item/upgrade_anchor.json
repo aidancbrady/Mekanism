@@ -1,0 +1,14 @@
+{
+  "name": "item.mekanism.upgrade_anchor",
+  "category": "items_upgrades",
+  "icon": "mekanism:upgrade_anchor",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:upgrade_anchor",
+      "link_recipe": true,
+      "text": "The Anchor Upgrade is a machine upgrade which keeps the chunk of the machine to which it is applied loaded. This is helpful for machines like the Digital Miner and Teleporter which must be in loaded chunks to function properly.$(p)$(bold)Compatible machines$()$(li)$(l:block/digital_miner)Digital Miner$(/l)$(li)$(l:block/quantum_entangloporter)Quantum Entangloporter$(/l)$(li)$(l:multiblocks/teleporter)Teleporter$(/l)"
+    }
+  ],
+  "read_by_default": true
+}

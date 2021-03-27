@@ -1,0 +1,6 @@
+{
+  "name": "Upgrades",
+  "description": "You gotta pump up them numbers, rookie. Increase various abilities of machines with these items.$(br)Insert via the machine's GUI, Upgrades tab.",
+  "icon": "mekanism:upgrade_speed",
+  "parent": "items"
+}

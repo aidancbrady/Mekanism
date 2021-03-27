@@ -1,0 +1,18 @@
+{
+  "name": "item.mekanism.upgrade_speed",
+  "category": "items_upgrades",
+  "icon": "mekanism:upgrade_speed",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:upgrade_speed",
+      "link_recipe": true,
+      "text": "An upgrade to increate the running speed of a machine."
+    },
+    {
+      "type": "text",
+      "text": "Note that every speed upgrade makes the machine 33% faster, and the Power Usage increases with ~77% (33²%), which makes for an increase in power usage for each operation with 33%.$(p)$(bold)The machine must have enough buffer to run one operation or it will not run at all."
+    }
+  ],
+  "read_by_default": true
+}

@@ -1,0 +1,12 @@
+{
+  "name": "gas.mekanism.antimatter",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Late-game chemical used for advanced processes."
+    }
+  ],
+  "read_by_default": true
+}

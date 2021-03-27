@@ -1,0 +1,23 @@
+{
+  "name": "Deuterium",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Deuterium is an isotope of $(l:gas/hydrogen)Hydrogen$(/l) with an extra neutron, used in a $(l:multiblocks/fusion_reactor)Fusion Reactor$(/l)."
+    },
+    {
+      "type": "text",
+      "text": "It is made by putting heavy water in an $(l:block/electrolytic_separator)Electrolytic Separator$(/l), which also produces $(l:gas/oxygen)oxygen$(/l)"
+    },
+    {
+      "type": "text",
+      "text": "Deuterium and $(l:chemicals/tritium)Tritium$(/l) can be either injected straight into a reactor, or combined in a $(l:block/chemical_infuser)Chemical Infuser$(/l) to create $(l:chemicals/dt_fuel)D-T Fuel$(/l)"
+    },
+    {
+      "type": "text",
+      "text": "See $(l:multiblocks/fusion_reactor)Fusion Reactor$(/l) for more details."
+    }
+  ]
+}

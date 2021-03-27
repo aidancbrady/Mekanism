@@ -1,0 +1,27 @@
+{
+  "name": "Bronze",
+  "category": "items_metal_and_ore",
+  "icon": "mekanism:ingot_bronze",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Bronze is an alloy of Copper and Tin."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ingot_bronze",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:dust_bronze",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:nugget_bronze",
+      "link_recipe": true
+    }
+  ],
+  "read_by_default": true
+}

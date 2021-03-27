@@ -1,0 +1,19 @@
+{
+  "name": "item.mekanism.dosimeter",
+  "category": "items_gear",
+  "icon": "mekanism:dosimeter",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:dosimeter",
+      "link_recipe": true,
+      "text": "Measures your accumulated radiation dosage.$(p)Use the $(l:item/geiger_counter)Geiger Counter$(/l) to assess the level of radiation in an area."
+    },
+    {
+      "type": "text",
+      "text": "Right click in the air to show $(bold)your$() current radiation dose in the chat feed. NB: this will never be zero, as there is always some background radiation.",
+      "title": "Usage"
+    }
+  ],
+  "read_by_default": true
+}

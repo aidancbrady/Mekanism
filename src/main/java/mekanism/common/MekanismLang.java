@@ -788,7 +788,13 @@ public enum MekanismLang implements ILangEntry {
     DESCRIPTION_DOSIMETER_UNIT("description", "dosimeter_unit"),
     DESCRIPTION_LOCOMOTIVE_BOOSTING_UNIT("description", "locomotive_boosting_unit"),
     DESCRIPTION_HYDRAULIC_PROPULSION_UNIT("description", "hydraulic_propulsion_unit"),
-    DESCRIPTION_MAGNETIC_ATTRACTION_UNIT("description", "magnetic_attraction_unit");
+    DESCRIPTION_MAGNETIC_ATTRACTION_UNIT("description", "magnetic_attraction_unit"),
+
+    //Patchouli book
+    GUIDE_NAME("guidebook", "book_name"),
+    GUIDE_LANDING("guidebook", "landing_text"),
+
+    ;
 
     private final String key;
 

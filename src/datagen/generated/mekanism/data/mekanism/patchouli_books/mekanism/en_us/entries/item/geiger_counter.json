@@ -1,0 +1,19 @@
+{
+  "name": "item.mekanism.geiger_counter",
+  "category": "items_gear",
+  "icon": "mekanism:geiger_counter",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:geiger_counter",
+      "link_recipe": true,
+      "text": "Measures the radiation level around you.$(p)Use the $(l:item/dosimeter)Dosimeter$(/l) to assess your existing radiation exposure."
+    },
+    {
+      "type": "text",
+      "text": "Right click in the air to show the $(bold)surrounding$() radiation level in the chat feed. NB: this will never be zero, as there is always some background radiation.",
+      "title": "Usage"
+    }
+  ],
+  "read_by_default": true
+}

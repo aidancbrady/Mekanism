@@ -1,0 +1,12 @@
+{
+  "name": "gas.mekanism.spent_nuclear_waste",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Biproduct of reprocessed $(l:gas/nuclear_waste)Nuclear Waste$(/l)"
+    }
+  ],
+  "read_by_default": true
+}

@@ -1,0 +1,19 @@
+{
+  "name": "item.mekanism.portable_teleporter",
+  "category": "items_gear",
+  "icon": "mekanism:portable_teleporter",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:portable_teleporter",
+      "link_recipe": true,
+      "text": "A player kept teleportation device. It can store power and like all Mekanism teleporters, energy drain increases with the distance the player teleports to."
+    },
+    {
+      "type": "text",
+      "text": "Right-clicking with this device in hand will open a GUI similar to that of the full Teleporter, allowing instant travel to any Teleporters that the player has set up. The Portable Teleporter is capable of multidimensional travel.$(p)Note that in order for the Portable Teleporter to be functional, the complete Teleporter Portal structure does $(bold)not$() need to be built; only the Teleporter block must be present (and supplied with power).",
+      "title": "Usage"
+    }
+  ],
+  "read_by_default": true
+}

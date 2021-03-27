@@ -1,0 +1,12 @@
+{
+  "name": "gas.mekanism.uranium_hexafluoride",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Used to make $(l:gas/fissile_fuel)Fissile Fuel$(/l) in the $(l:block/isotopic_centrifuge)Isotopic Centrifuge$(/l)."
+    }
+  ],
+  "read_by_default": true
+}

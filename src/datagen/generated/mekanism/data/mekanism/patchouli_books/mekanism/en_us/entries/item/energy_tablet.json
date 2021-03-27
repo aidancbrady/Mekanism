@@ -1,0 +1,14 @@
+{
+  "name": "item.mekanism.energy_tablet",
+  "category": "items",
+  "icon": "mekanism:energy_tablet",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:energy_tablet",
+      "link_recipe": true,
+      "text": "The Energy Tablet is chiefly an a crafting component and a can be used directly as a battery. Charge will be retained when used as a crafting ingredient."
+    }
+  ],
+  "read_by_default": true
+}

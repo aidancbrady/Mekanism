@@ -1,0 +1,14 @@
+{
+  "name": "item.mekanism.canteen",
+  "category": "items_gear",
+  "icon": "mekanism:canteen",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:canteen",
+      "link_recipe": true,
+      "text": "The Canteen is used to store $(l:gas/nutritional_paste)Nutritional Paste$(/l) (total of 64 Buckets). When hungry, you can hold right click to drink some Nutritional Paste. Each hunger point (half a hunger bar) consumes 50mB of Nutritional Paste."
+    }
+  ],
+  "read_by_default": true
+}

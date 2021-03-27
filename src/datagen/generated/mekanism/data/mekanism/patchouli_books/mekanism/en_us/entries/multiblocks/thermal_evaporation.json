@@ -1,0 +1,42 @@
+{
+  "name": "Thermal Evaporation Plant",
+  "category": "multiblocks",
+  "icon": "mekanism:thermal_evaporation_controller",
+  "pages": [
+    {
+      "type": "text",
+      "text": "The Thermal Evaporation Plant is a 4x4 base multiblock for producing one liquid from another by way of heat energy. Minimum height is 3, maximum is 18.$(p)Heat can be supplied passively, actively by solar, or externally supplied."
+    },
+    {
+      "type": "multiblock",
+      "name": "TEP Test",
+      "multiblock": {
+        "pattern": [
+          [
+            " AA ",
+            "A  A",
+            "A  A",
+            " AA "
+          ],
+          [
+            "AAAA",
+            "A  A",
+            "A  B",
+            "AAAA"
+          ],
+          [
+            "AAAA",
+            "AAAA",
+            "AA0A",
+            "AAAA"
+          ]
+        ],
+        "mapping": {
+          "0": "mekanism:thermal_evaporation_block",
+          "A": "mekanism:thermal_evaporation_block",
+          "B": "mekanism:thermal_evaporation_controller[active=false,facing=east]"
+        }
+      }
+    }
+  ]
+}

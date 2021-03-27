@@ -1,0 +1,27 @@
+{
+  "name": "Refined Glowstone",
+  "category": "items_metal_and_ore",
+  "icon": "mekanism:ingot_refined_glowstone",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Refined glowstone is a stronger form of Glowstone, reinforced with Osmium in the $(l:block/osmium_compressor)Osmium Compressor$(/l)."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ingot_refined_glowstone",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:nugget_refined_glowstone",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:block_refined_glowstone",
+      "link_recipe": true
+    }
+  ],
+  "read_by_default": true
+}

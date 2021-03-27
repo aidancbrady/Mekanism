@@ -1,0 +1,38 @@
+{
+  "name": "Steel",
+  "category": "items_metal_and_ore",
+  "icon": "mekanism:ingot_steel",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Steel is a hardened metal used in most Mekanism constructions."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:enriched_iron",
+      "link_recipe": true,
+      "text": "Intermediate step in Mekanism Steel production."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ingot_steel",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:dust_steel",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:nugget_steel",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:block_steel",
+      "link_recipe": true
+    }
+  ],
+  "read_by_default": true
+}

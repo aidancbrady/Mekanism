@@ -1,0 +1,35 @@
+{
+  "name": "HDPE",
+  "category": "items",
+  "icon": "mekanism:hdpe_sheet",
+  "pages": [
+    {
+      "type": "text",
+      "text": "High Density PolyEthylene is used to make plastic."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:hdpe_pellet",
+      "link_recipe": true,
+      "text": "First stage of HDPE production"
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:hdpe_sheet",
+      "link_recipe": true,
+      "text": "A sheet of plastic."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:hdpe_rod",
+      "link_recipe": true,
+      "text": "A rod of plastic"
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:hdpe_stick",
+      "link_recipe": true,
+      "text": "It's a stick."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "item.mekanism.dust_charcoal",
+  "category": "items_metal_and_ore",
+  "icon": "mekanism:dust_charcoal",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:dust_charcoal",
+      "link_recipe": true,
+      "text": "Crushed form of Charcoal"
+    }
+  ],
+  "read_by_default": true
+}

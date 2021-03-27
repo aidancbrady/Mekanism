@@ -1,0 +1,17 @@
+{
+  "name": "gas.mekanism.fissile_fuel",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Fuel source made from $(l:gas/uranium_hexafluoride)Uranium Hexafluoride$(/l) in the $(l:block/isotopic_centrifuge)Isotopic Centrifuge$(/l)."
+    },
+    {
+      "type": "text",
+      "flag": "mod:mekanismgenerators",
+      "text": "Used in the Fission Reactor."
+    }
+  ],
+  "read_by_default": true
+}

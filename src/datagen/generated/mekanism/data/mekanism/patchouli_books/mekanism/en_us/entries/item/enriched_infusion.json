@@ -1,0 +1,41 @@
+{
+  "name": "Enriched Infusion",
+  "category": "items",
+  "icon": "mekanism:enriched_redstone",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Infusion ingredients can be enriched in the $(l:block/enrichment_chamber)Enrichment Chamber$(/l) to provide more infusion amount in the $(l:block/metallurgic_infuser)Metallurgic Infuser$(/l)."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:enriched_redstone",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:enriched_diamond",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:enriched_refined_obsidian",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:enriched_carbon",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:enriched_gold",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:enriched_tin",
+      "link_recipe": true
+    }
+  ]
+}

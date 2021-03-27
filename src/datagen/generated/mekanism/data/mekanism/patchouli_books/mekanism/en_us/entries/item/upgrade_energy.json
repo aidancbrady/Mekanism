@@ -1,0 +1,14 @@
+{
+  "name": "item.mekanism.upgrade_energy",
+  "category": "items_upgrades",
+  "icon": "mekanism:upgrade_energy",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:upgrade_energy",
+      "link_recipe": true,
+      "text": "Upgrades the energy buffer of a machine and reduces its per-operation consumption.$(p)The $(l:block/electrolytic_separator)Electrolytic Separator$(/l) only receives a buffer increase."
+    }
+  ],
+  "read_by_default": true
+}

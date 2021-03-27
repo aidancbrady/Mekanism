@@ -1,0 +1,31 @@
+{
+  "name": "Mechanical Pipes",
+  "category": "blocks",
+  "icon": "mekanism:basic_mechanical_pipe",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Mechanical Pipe is the fluid pipe for Mekanism logistics. It can be used to connect to any blocks with Fluid Handlers in them."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:basic_mechanical_pipe",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:advanced_mechanical_pipe",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:elite_mechanical_pipe",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ultimate_mechanical_pipe",
+      "link_recipe": true
+    }
+  ]
+}

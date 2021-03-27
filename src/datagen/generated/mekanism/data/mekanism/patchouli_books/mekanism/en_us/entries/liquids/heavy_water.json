@@ -1,0 +1,11 @@
+{
+  "name": "Heavy Water",
+  "category": "liquids",
+  "icon": "mekanism:heavy_water_bucket",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Heavy Water is obtaind by having an $(l:block/electric_pump)Electric Pump$(/l) with a $(l:item/upgrade_filter)Filter Upgrade$(/l) pump a regular water source."
+    }
+  ]
+}

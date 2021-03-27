@@ -1,0 +1,23 @@
+{
+  "name": "item.mekanism.dictionary",
+  "category": "items_gear",
+  "icon": "mekanism:dictionary",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:dictionary",
+      "link_recipe": true,
+      "text": "Don't worry, you won't have to read much."
+    },
+    {
+      "type": "text",
+      "text": "The Dictionary allows you to check the Tags (vanilla mechanic) of an item which can be used in a Tag Filter for things like the $(l:block/digital_miner)Digital Miner$(/l) & $(l:block/logistical_sorter)Logistical Sorter$(/l), or in the $(l:block/oredictionificator)Oredictionificator$(/l)."
+    },
+    {
+      "type": "text",
+      "text": "Right click to open the GUI and insert an item into the slot. The tags will be listed.$(p)Right clicking a block in-world will tell you the Tags of that block.",
+      "title": "Usage"
+    }
+  ],
+  "read_by_default": true
+}

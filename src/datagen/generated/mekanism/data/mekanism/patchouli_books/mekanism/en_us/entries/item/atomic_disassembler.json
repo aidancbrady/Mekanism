@@ -1,0 +1,44 @@
+{
+  "name": "item.mekanism.atomic_disassembler",
+  "category": "items_gear",
+  "icon": "mekanism:atomic_disassembler{\"HideFlags\":2}",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:atomic_disassembler{\"HideFlags\":2}",
+      "link_recipe": true,
+      "text": "The Atomic Disassembler is Mekanism's an all-in-one tool, essentially the ultimate, electronic version of the Paxel (working at any mining level). Also functions as a Hoe & Scoop (Forestry)$(p)The Atomic Disassembler has multiple modes that can be cycled with $(k:sneak) + right click."
+    },
+    {
+      "type": "text",
+      "text": "Base speed setting, single block, roughly equivalent to Efficiency II.$(p)Farmland tilling and Grass Path functions have been moved to the MekaTool $(l:items/modules/mekanism:module_farming_unit)Farming Unit$(/l)",
+      "title": "Normal Mode"
+    },
+    {
+      "type": "text",
+      "text": "Slower than Normal Mode, less power usage",
+      "title": "Slow Mode"
+    },
+    {
+      "type": "text",
+      "text": "Super mode, roughly equivalent to Efficiency V. Uses more energy to function.",
+      "title": "Fast Mode"
+    },
+    {
+      "type": "text",
+      "text": "Like normal mode but will mine a vein of Ore or Log blocks (tagged with forge:ores or forge:logs) matching the start block.",
+      "title": "Vein Mode"
+    },
+    {
+      "type": "text",
+      "text": "Like Vein Mode, but works with any block.",
+      "title": "Extended Vein Mining"
+    },
+    {
+      "type": "text",
+      "text": "Functions as if out of power - no mining speed benefits or extended functionality.",
+      "title": "Off"
+    }
+  ],
+  "read_by_default": true
+}

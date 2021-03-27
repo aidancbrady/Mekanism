@@ -1,0 +1,47 @@
+{
+  "name": "Clumps",
+  "category": "items_metal_and_ore",
+  "icon": "mekanism:clump_iron",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Clumps are part of the $(l:ore_processing/tripling)3x Ore Processing$(/l) pipeline and above."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:clump_iron",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:clump_gold",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:clump_osmium",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:clump_copper",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:clump_tin",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:clump_lead",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:clump_uranium",
+      "link_recipe": true
+    }
+  ],
+  "read_by_default": true
+}

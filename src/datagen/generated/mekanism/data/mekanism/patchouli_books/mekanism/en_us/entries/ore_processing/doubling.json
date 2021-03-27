@@ -1,0 +1,11 @@
+{
+  "name": "2x - Ore Doubling",
+  "category": "ore_processing",
+  "icon": "mekanism:enrichment_chamber",
+  "pages": [
+    {
+      "type": "text",
+      "text": "To double your ores, simply use an $(l:block/enrichment_chamber)Enrichment Chamber$(/l) to turn your ores into dusts, which can be smelted into ingots in a furnace or our patented $(l:block/energized_smelter)Energized Smelter$(/l)"
+    }
+  ]
+}

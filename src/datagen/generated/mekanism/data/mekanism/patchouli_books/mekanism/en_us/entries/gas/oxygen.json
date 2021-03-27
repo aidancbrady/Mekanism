@@ -1,0 +1,16 @@
+{
+  "name": "gas.mekanism.oxygen",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Oxygen is produced by splitting water using an $(l:block/electrolytic_separator)Electrolytic Separator$(/l), which also produces $(l:gas/hydrogen)Hydrogen$(/l)"
+    },
+    {
+      "type": "text",
+      "text": "It is used in the $(l:block/purification_chamber)Purification Chamber$(/l), part of $(l:ore_processing/tripling)Ore Tripling$(/l).  It is also combined with $(l:gas/sulfur_trioxide)Sulfur Trioxide$(/l) in the $(l:block/chemical_infuser)Chemical Infuser$(/l) to make $(l:gas/sulfur_dioxide)Sulfur Dioxide$(/l), as well as in the $(l:item/scuba_mask)Scuba Mask$(/l)."
+    }
+  ],
+  "read_by_default": true
+}

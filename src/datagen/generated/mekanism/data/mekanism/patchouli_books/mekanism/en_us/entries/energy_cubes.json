@@ -1,0 +1,36 @@
+{
+  "name": "Energy Cubes",
+  "category": "blocks",
+  "icon": "mekanism:basic_energy_cube",
+  "pages": [
+    {
+      "type": "text",
+      "text": "An Energy Cube is an advanced type of battery that is compatible with multiple energy systems. The Input/Output mode of the side can be configured in the GUI"
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:basic_energy_cube",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:advanced_energy_cube",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:elite_energy_cube",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ultimate_energy_cube",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:creative_energy_cube",
+      "link_recipe": true
+    }
+  ]
+}

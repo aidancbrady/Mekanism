@@ -1,0 +1,13 @@
+{
+  "name": "block.mekanismgenerators.solar_generator",
+  "category": "generators",
+  "icon": "mekanismgenerators:solar_generator",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanismgenerators:solar_generator",
+      "link_recipe": true
+    }
+  ],
+  "read_by_default": true
+}

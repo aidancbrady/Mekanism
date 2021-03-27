@@ -3,14 +3,19 @@ import groovy.json.JsonSlurper
 import mekanism.tasks.MergeJars
 
 buildscript {
+    ext.kotlin_version = '1.4.31'
     repositories {
+        maven {
+            name 'thiakil'
+            url "https://maven.thiakil.com"
+        }
         maven {
             name "forge"
             url "https://files.minecraftforge.net/maven"
         }
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
     }
 }
 
@@ -20,8 +25,8 @@ plugins {
     id 'java'
     id 'eclipse'
     id 'idea'
-    id 'maven'
     id 'maven-publish'
+    id 'org.jetbrains.kotlin.jvm' version "$kotlin_version"
 }
 
 defaultTasks 'fullBuild'
@@ -78,6 +83,14 @@ sourceSets {
     datagentools { setupDataGenSourceSet(datagentools, tools, 'tools') }
 }
 
+// no kotlin for the main mod
+sourceSets.api.kotlin.srcDirs.removeAll()
+sourceSets.main.kotlin.srcDirs.removeAll()
+sourceSets.additions.kotlin.srcDirs.removeAll()
+sourceSets.defense.kotlin.srcDirs.removeAll()
+sourceSets.generators.kotlin.srcDirs.removeAll()
+sourceSets.tools.kotlin.srcDirs.removeAll()
+
 //This method sets up an additional sourceSet in src/$name and adds a reference to the corresponding
 // data gen's resource directory excluding the cache. It also adds the api and main mekanism module
 // to the dependencies of the source set we are setting up
@@ -99,6 +112,7 @@ def setupSourceSet(SourceSet sourceSet, String name) {
 // base module to the dependencies of the data generators source set that we are setting up
 def setupDataGenSourceSet(SourceSet datagenSourceSet, SourceSet baseSourceSet, String name) {
     datagenSourceSet.java.srcDirs = ['src/datagen/' + name + '/java']
+    datagenSourceSet.kotlin.srcDirs = ['src/datagen/' + name + '/kotlin', 'src/datagen/' + name + '/java']//NB: java exists here so they can reference each other
     datagenSourceSet.resources.srcDirs = ['src/datagen/' + name + '/resources']
     datagenSourceSet.compileClasspath += project.sourceSets.api.output
     datagenSourceSet.compileClasspath += project.sourceSets.main.output
@@ -107,6 +121,12 @@ def setupDataGenSourceSet(SourceSet datagenSourceSet, SourceSet baseSourceSet, S
         // in datagenmain so we can add helper classes
         datagenSourceSet.compileClasspath += project.sourceSets.datagenmain.output
         datagenSourceSet.compileClasspath += baseSourceSet.output
+    }
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
@@ -179,7 +199,7 @@ replaceResourcesInfo.each { output, sourceSet ->
 group = "mekanism"
 version = "${minecraft_version}-${mod_version}." + (System.env.BUILD_NUMBER ?: "homebaked")
 archivesBaseName = "Mekanism"
-sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 minecraft {
     mappings channel: "snapshot", version: "${mappings_version}"
@@ -225,6 +245,9 @@ minecraft {
                 mekanismgenerators.source((SourceSet) sourceSets.generators)
                 mekanismtools.source((SourceSet) sourceSets.tools)
             }
+
+            //For Mixin in other mods / Patchouli
+            property 'mixin.env.disableRefMap', 'true'
         }
 
         server {
@@ -242,6 +265,9 @@ minecraft {
                 mekanismgenerators.source((SourceSet) sourceSets.generators)
                 mekanismtools.source((SourceSet) sourceSets.tools)
             }
+
+            //For Mixin in other mods / Patchouli
+            property 'mixin.env.disableRefMap', 'true'
         }
 
         data {
@@ -275,12 +301,23 @@ minecraft {
                 mekanismgenerators.sources((SourceSet[]) [sourceSets.generators, sourceSets.datagengenerators])
                 mekanismtools.sources((SourceSet[]) [sourceSets.tools, sourceSets.datagentools])
             }
+
+            //For Mixin in other mods / Patchouli
+            property 'mixin.env.disableRefMap', 'true'
         }
     }
 }
 
 repositories {
     maven {
+        name 'thiakil'
+        url 'https://maven.thiakil.com'
+        content {
+            includeGroup 'de.oceanlabs.mcp'
+            includeGroup 'net.minecraft'//custom mappings
+        }
+    }
+    /*maven { Redundant - added by ForgeGradle
         name 'ForgeFS'
         url 'https://files.minecraftforge.net/maven'
         content {
@@ -288,7 +325,7 @@ repositories {
             includeGroup 'de.oceanlabs.mcp'
             includeGroup 'cpw.mods'
         }
-    }
+    }*/
     maven {
         name 'prog'
         url 'https://dvs1.progwml6.com/files/maven'
@@ -323,10 +360,35 @@ repositories {
         }
     }
     maven {
-        name 'HWYLA'
-        url "https://maven.tehnut.info"
+        url 'https://maven.blamejared.com'
         content {
-            includeGroup 'mcp.mobius.waila'
+            includeGroup 'vazkii.patchouli'
+        }
+    }
+
+    whenObjectAdded {//ForgeGradle adds these in an afterEvaluate, so we need to catch them as they're added and exclude mod artifacts/groups
+        if (it instanceof MavenArtifactRepository){
+            if (it.url.toString() == 'https://files.minecraftforge.net/maven/' || it.url.toString() == 'https://libraries.minecraft.net/' || it.url.toString() == 'https://repo.maven.apache.org/maven2/') {
+                try {
+                    it.content {
+                        excludeGroup 'curse.maven'
+                        excludeGroup 'mezz.jei'
+                        excludeGroupByRegex 'com\\.enderio.*'
+                        excludeGroupByRegex 'com\\.enderzoo.*'
+                        excludeGroupByRegex 'com\\.tterrag.*'
+                        excludeGroupByRegex 'tterrag.*'
+                        excludeGroup 'mcjty.theoneprobe'
+                        excludeGroup 'team.chisel.ctm'
+                        excludeGroup 'appeng'
+                        excludeGroup 'org.squiddev'
+                        excludeGroup 'com.blamejared.crafttweaker'
+                        excludeGroup 'vazkii.patchouli'
+                    }
+                    println("Adding exclusions to ${it.url}")
+                } catch (Exception ignored) {
+                    //oh well
+                }
+            }
         }
     }
 }
@@ -353,12 +415,15 @@ dependencies {
     compileOnly fg.deobf("mcjty.theoneprobe:TheOneProbe-1.16:${top_version}:api")
     runtimeOnly fg.deobf("mcjty.theoneprobe:TheOneProbe-1.16:${top_version}")
 
-    compileOnly fg.deobf("mcp.mobius.waila:Hwyla:${hwyla_version}:api")
-    runtimeOnly fg.deobf("mcp.mobius.waila:Hwyla:${hwyla_version}")
+    compileOnly fg.deobf("curse.maven:jade-api-324717:${jade_api_id}")
+    runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_id}")
 
     //Mods we have dependencies on but don't bother loading into the dev environment
     compileOnly fg.deobf("curse.maven:projecte-api-226410:${projecte_api_id}")
     compileOnly fg.deobf("curse.maven:flux-networks-248020:${flux_networks_id}")
+
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
 
     //Dependencies for data generators for mod compat reference
     datagenmainImplementation fg.deobf("appeng:appliedenergistics2:${ae2_version}")
@@ -367,9 +432,15 @@ dependencies {
     datagenmainImplementation fg.deobf("curse.maven:i-like-wood-324164:${ilikewood_id}")
     datagenmainImplementation fg.deobf("curse.maven:i-like-wood-biomes-o-plenty-437203:${ilikewood_bop_id}")
     datagenmainRuntimeOnly fg.deobf("curse.maven:projecte-226410:${projecte_id}")
+
+    datagenmainCompile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    datagengeneratorsCompile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    datagenadditionsCompile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    datagentoolsCompile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
 
 processResources {
+    duplicatesStrategy = DuplicatesStrategy.FAIL
     //Exclude the mods.toml file as we manually handle that and don't want it to invalidate our cache
     exclude 'META-INF/mods.toml'
     //Add our logo file
@@ -384,6 +455,7 @@ processResources {
 }
 
 processAdditionsResources {
+    duplicatesStrategy = DuplicatesStrategy.FAIL
     //Exclude the mods.toml file as we manually handle that and don't want it to invalidate our cache
     exclude 'META-INF/mods.toml'
     //Add our logo file
@@ -398,6 +470,7 @@ processAdditionsResources {
 }
 
 processDefenseResources {
+    duplicatesStrategy = DuplicatesStrategy.FAIL
     //Exclude the mods.toml file as we manually handle that and don't want it to invalidate our cache
     exclude 'META-INF/mods.toml'
     //Add our logo file
@@ -412,6 +485,7 @@ processDefenseResources {
 }
 
 processGeneratorsResources {
+    duplicatesStrategy = DuplicatesStrategy.FAIL
     //Exclude the mods.toml file as we manually handle that and don't want it to invalidate our cache
     exclude 'META-INF/mods.toml'
     //Add our logo file
@@ -426,6 +500,7 @@ processGeneratorsResources {
 }
 
 processToolsResources {
+    duplicatesStrategy = DuplicatesStrategy.FAIL
     //Exclude the mods.toml file as we manually handle that and don't want it to invalidate our cache
     exclude 'META-INF/mods.toml'
     //Add our logo file
@@ -512,20 +587,26 @@ task allJar(type: Jar) {
             processResources, processAdditionsResources, processDefenseResources,
             processGeneratorsResources, processToolsResources)
     afterEvaluate { finalizedBy reobfAllJar }
+    duplicatesStrategy = DuplicatesStrategy.FAIL
     archiveClassifier.set("all")
     manifest.attributes(getManifestAttributes("MekanismAll"))
     //Start by generating the merged data
     doFirst(MergeJars.merge(project, sourceSets.main, sourceSets.additions, sourceSets.defense, sourceSets.generators, sourceSets.tools))
     //Then copy all the files except for ones we are going to include from the merged
     from(sourceSets.api.output)
-    from(sourceSets.main.output, MergeJars.excludedMain())
-    Closure excluded = MergeJars.excludedGeneral()
-    from(sourceSets.additions.output, excluded)
-    from(sourceSets.defense.output, excluded)
-    from(sourceSets.generators.output, excluded)
-    from(sourceSets.tools.output, excluded)
+    List<String> baseExcludeData = MergeJars.getGeneralPathsToExclude(project)
+    from(sourceSets.main.output, MergeJars.createExcludeClosure(baseExcludeData))
+    Closure excludeFromAll = MergeJars.createExcludeClosure(baseExcludeData, 'logo.png', 'pack.mcmeta')
+    from(sourceSets.additions.output, excludeFromAll)
+    from(sourceSets.defense.output, excludeFromAll)
+    from(sourceSets.generators.output, excludeFromAll)
+    from(sourceSets.tools.output, excludeFromAll)
     //And finally copy over the generated files
     MergeJars.getGeneratedClosures(version_properties).each { closure -> from("$buildDir/generated", closure) }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
 
 artifacts {
@@ -727,6 +808,9 @@ if (System.getenv("CURSEFORGE_KEY") != null || project.hasProperty('curseforgeKe
                     optionalDependency "flux-networks"
                     optionalDependency "hwyla"
                     optionalDependency "i-like-wood"
+                    optionalDependency "i-like-wood-biomes-o-plenty-plugin"
+                    optionalDependency "jade"
+                    optionalDependency "jei"
                     optionalDependency "projecte"
                     optionalDependency "the-one-probe"
                 }
@@ -790,5 +874,15 @@ if (System.getenv("CURSEFORGE_KEY") != null || project.hasProperty('curseforgeKe
             }
             addGameVersion "${minecraft_version}"
         }
+    }
+}
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }

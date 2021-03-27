@@ -1,0 +1,14 @@
+{
+  "name": "item.mekanism.scuba_mask",
+  "category": "items_gear",
+  "icon": "mekanism:scuba_mask{\"HideFlags\":2}",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:scuba_mask{\"HideFlags\":2}",
+      "link_recipe": true,
+      "text": "The Scuba Mask is an utility head armor piece, used in conjunction with the $(l:item/scuba_tank)Scuba Tank$(/l) to breathe underwater.$(p)It can be enchanted with respiration and water breathing for extended use."
+    }
+  ],
+  "read_by_default": true
+}

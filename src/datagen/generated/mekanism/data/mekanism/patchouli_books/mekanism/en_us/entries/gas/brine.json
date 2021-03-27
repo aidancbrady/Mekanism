@@ -1,0 +1,16 @@
+{
+  "name": "gas.mekanism.brine",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "The gaseous form of brine, made by putting $(l:item/salt)salt$(/l) in a $(l:block/chemical_oxidizer)Chemical Oxidizer$(/l), or by evaporating liquid brine in a $(l:block/rotary_condensentrator)Rotary Condenstrator$(/l)."
+    },
+    {
+      "type": "text",
+      "text": "The Condenstrator can also turn it back into liquid brine, by pressing the \"Switch Operation\" toggle."
+    }
+  ],
+  "read_by_default": true
+}

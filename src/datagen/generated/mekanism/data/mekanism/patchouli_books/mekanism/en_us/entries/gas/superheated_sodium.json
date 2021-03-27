@@ -1,0 +1,12 @@
+{
+  "name": "gas.mekanism.superheated_sodium",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "$(l:gas/sodium)Sodium$(/l) that has been heated in a reactor. Remove the heat using a Boiler to return to normal Sodium"
+    }
+  ],
+  "read_by_default": true
+}

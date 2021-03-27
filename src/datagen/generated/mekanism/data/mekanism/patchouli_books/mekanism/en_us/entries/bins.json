@@ -1,0 +1,49 @@
+{
+  "name": "Bins",
+  "category": "blocks",
+  "icon": "mekanism:basic_bin",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Bins are storage blocks which can hold large amounts of a single item. It will retain its inventory when broken. Each tier increases the storage capacity.$(p)To store something in a Bin right-click any side while holding an item or stack. This will store what's in your hand."
+    },
+    {
+      "type": "text",
+      "text": "Double right-click to put the complete amount of an item in your inventory to the bin.$(p)Left-click on the front of the bin to extract a stack. $(k:sneak)-click to extract a single item.$(p)Items can be piped into the bin from the top, and piped out from the bottom. NB: other mods' item handlers are not restricted in this manner."
+    },
+    {
+      "type": "text",
+      "text": "If you $(k:sneak)-click the bin with a Configurator it will be placed into auto-eject mode. This is indicated by green accents on the front, top, and bottom. In this mode it will pump items out of the bottom automatically."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:basic_bin",
+      "link_recipe": true,
+      "text": "Holds 4,096 items."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:advanced_bin",
+      "link_recipe": true,
+      "text": "Holds 8,192 items."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:elite_bin",
+      "link_recipe": true,
+      "text": "Holds 32,768 items."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ultimate_bin",
+      "link_recipe": true,
+      "text": "Holds 262,144 items."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:creative_bin",
+      "link_recipe": true,
+      "text": "Holds an infinite amount, does not deplete when withdrawing items."
+    }
+  ]
+}

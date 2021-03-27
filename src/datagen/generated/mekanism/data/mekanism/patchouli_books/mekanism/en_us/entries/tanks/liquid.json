@@ -1,0 +1,36 @@
+{
+  "name": "Fluid Tanks",
+  "category": "blocks",
+  "icon": "mekanism:basic_fluid_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Tanks which store fluids. They can be placed as a block or used in Bucket mode ($(k:sneak) + $(k:key.mekanism.mode) to toggle)"
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:basic_fluid_tank",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:advanced_fluid_tank",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:elite_fluid_tank",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ultimate_fluid_tank",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:creative_fluid_tank",
+      "link_recipe": true
+    }
+  ]
+}

@@ -7,12 +7,25 @@ import org.gradle.api.tasks.SourceSet
 
 class MergeJars {
 
-    static Closure excludedMain() {
-        return { exclude 'META-INF/mods.toml', 'META-INF/accesstransformer.cfg' }
+    static List<String> getGeneralPathsToExclude(Project project) {
+        List<String> toExclude = new ArrayList<>()
+        toExclude.add('META-INF/mods.toml')
+        toExclude.add('META-INF/accesstransformer.cfg')
+        int baseLength = "$project.buildDir/generated/".length()
+        project.fileTree(dir: "$project.buildDir/generated/data/").each {
+            File file -> toExclude.add(file.getPath().substring(baseLength))
+        }
+        return toExclude
     }
 
-    static Closure excludedGeneral() {
-        return { exclude 'META-INF/mods.toml', 'META-INF/accesstransformer.cfg', 'logo.png', 'pack.mcmeta' }
+    static Closure createExcludeClosure(List<String> baseExcludeData, String... extraExclusions) {
+        List<String> toExcludeFromAll = new ArrayList<>(baseExcludeData)
+        for (String extraExclusion : extraExclusions) {
+            toExcludeFromAll.add(extraExclusion)
+        }
+        return {
+            exclude(toExcludeFromAll)
+        }
     }
 
     static Closure merge(Project project, SourceSet... sourceSets) {

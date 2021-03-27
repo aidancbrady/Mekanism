@@ -1,0 +1,14 @@
+{
+  "name": "item.mekanism.electrolytic_core",
+  "category": "items",
+  "icon": "mekanism:electrolytic_core",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:electrolytic_core",
+      "link_recipe": true,
+      "text": "Crafting ingredient used for electrolysis."
+    }
+  ],
+  "read_by_default": true
+}

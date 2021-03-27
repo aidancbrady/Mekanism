@@ -1,0 +1,14 @@
+{
+  "name": "item.mekanism.network_reader",
+  "category": "items_gear",
+  "icon": "mekanism:network_reader",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:network_reader",
+      "link_recipe": true,
+      "text": "Sends information about the targeted pipe network to chat."
+    }
+  ],
+  "read_by_default": true
+}

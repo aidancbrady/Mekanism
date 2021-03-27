@@ -1,0 +1,12 @@
+{
+  "name": "gas.mekanism.lithium",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Lithium is produced by $(l:multiblocks/thermal_evaporation)evaporating$(/l) $(l:gas/brine)brine$(/l).  It is processed into $(l:chemicals/tritium)Tritium$(/l) in a $(l:block/solar_neutron_activator)Solar Neutron Activator$(/l)."
+    }
+  ],
+  "read_by_default": true
+}

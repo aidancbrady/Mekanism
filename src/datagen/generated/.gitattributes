@@ -1,0 +1,2 @@
+# GSON uses LF only, this prevents annoyance on Windows where only EOLs differ
+*.json eol=lf

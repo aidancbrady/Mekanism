@@ -1,0 +1,16 @@
+{
+  "name": "gas.mekanism.sulfuric_acid",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Sulfuric acid is necesary for $(l:ore_processing/quintupling)Ore Quintupling$(/l).  It is used in the $(l:block/chemical_dissolution_chamber)Chemical Dissolution Chamber$(/l) to dissolve ores into slurry."
+    },
+    {
+      "type": "text",
+      "text": "It is created by combining $(l:gas/sulfur_trioxide)Sulfur Trioxide$(/l) and $(l:gas/water_vapor)Water Vapor$(/l) in the $(l:block/chemical_infuser)Chemical Infuser$(/l)."
+    }
+  ],
+  "read_by_default": true
+}

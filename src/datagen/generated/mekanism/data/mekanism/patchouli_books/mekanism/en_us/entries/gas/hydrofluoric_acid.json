@@ -1,0 +1,12 @@
+{
+  "name": "gas.mekanism.hydrofluoric_acid",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "An acid make from $(l:gas/sulfuric_acid)Sulfuric Acid$(/l) and $(l:item/fluorite_gem)Fluorite$(/l), used to make $(l:gas/uranium_hexafluoride)Uranium Hexafluoride$(/l)"
+    }
+  ],
+  "read_by_default": true
+}

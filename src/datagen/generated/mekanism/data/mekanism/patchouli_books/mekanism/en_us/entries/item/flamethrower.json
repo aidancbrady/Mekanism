@@ -1,0 +1,23 @@
+{
+  "name": "item.mekanism.flamethrower",
+  "category": "items_gear",
+  "icon": "mekanism:flamethrower",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:flamethrower",
+      "link_recipe": true,
+      "text": "The Flamethrower is a ranged weapon which uses Hydrogen gas as its fuel. It is fairly effective against mobs as it deals damage when they are directly hit with the stream and sets them on fire. It is most effective on large groups of mobs, where the user can hose down the entire group with fuel at a short distance."
+    },
+    {
+      "type": "text",
+      "text": "You can switch between three fire modes using $(k:sneak) + $(k:key.mekanism.mode). The modes are$(li)$(bold)Combat$() - The default mode. Damages mobs and sets them on fire. Destroys any items on the ground. Does not set fire to blocks nor damage them.$(li)$(bold)Heat$() - Same as combat, but blocks/items that have a smelter recipe will be instantly converted into it. For example you can fire a short burst at iron ore block and a single ingot of iron",
+      "title": "Modes"
+    },
+    {
+      "type": "text",
+      "text": "will be dropped. $(li)$(bold)Inferno$() - Same as combat, but blocks that the stream hits will be hit with blast damage (like with creepers, ghasts, TNT) and will usually be destroyed. Nearby blocks will be set on fire."
+    }
+  ],
+  "read_by_default": true
+}

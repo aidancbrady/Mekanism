@@ -1,0 +1,14 @@
+{
+  "name": "item.mekanism.dust_lithium",
+  "category": "items_metal_and_ore",
+  "icon": "mekanism:dust_lithium",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:dust_lithium",
+      "link_recipe": true,
+      "text": "Crystallized form of $(l:gas/lithium)Lithium$(/l)"
+    }
+  ],
+  "read_by_default": true
+}

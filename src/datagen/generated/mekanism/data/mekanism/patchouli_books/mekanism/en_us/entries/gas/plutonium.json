@@ -1,0 +1,12 @@
+{
+  "name": "gas.mekanism.plutonium",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "First stage of $(l:item/pellet_plutonium)Plutonium Pellet$(/l) production."
+    }
+  ],
+  "read_by_default": true
+}

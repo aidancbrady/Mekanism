@@ -1,0 +1,35 @@
+{
+  "name": "Induction Providers",
+  "category": "blocks",
+  "icon": "mekanism:basic_induction_provider",
+  "pages": [
+    {
+      "type": "text",
+      "text": "The Induction Providers are used in the $(l:multiblocks/induction_matrix)Induction Matrix$(/l) to determine how fast it is able to output energy through the Induction Port.$(2br)Using multiple Induction Providers in the same Induction Matrix will add extra output capacity, by adding their values together.$(2br)The total output value is for the entire multi-block structure, and not on a \"per port\" basis."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:basic_induction_provider",
+      "link_recipe": true,
+      "text": "Adds 256 kJ/t to output/input rate."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:advanced_induction_provider",
+      "link_recipe": true,
+      "text": "Adds 2.04 MJ/t to output/input rate."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:elite_induction_provider",
+      "link_recipe": true,
+      "text": "Adds 16.38 MJ/t to output/input rate."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ultimate_induction_provider",
+      "link_recipe": true,
+      "text": "Adds 131.07 MJ/t to output/input rate."
+    }
+  ]
+}

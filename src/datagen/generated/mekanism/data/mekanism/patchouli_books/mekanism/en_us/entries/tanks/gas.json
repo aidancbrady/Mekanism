@@ -1,0 +1,36 @@
+{
+  "name": "Chemical Tanks",
+  "category": "blocks",
+  "icon": "mekanism:basic_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Chemical Tanks are Mekanism's batteries for storing Gases and other chemicals. They can be placed as a block and interact with Pressurized Tubes. They come in four tiers, each increasing the storage capacity and output rate."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:basic_chemical_tank",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:advanced_chemical_tank",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:elite_chemical_tank",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ultimate_chemical_tank",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:creative_chemical_tank",
+      "link_recipe": true
+    }
+  ]
+}

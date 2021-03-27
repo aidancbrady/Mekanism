@@ -1,0 +1,35 @@
+{
+  "name": "Installers",
+  "category": "items",
+  "icon": "mekanism:basic_tier_installer",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Upgrade the tier of a block in world, without needing to put it in a crafting grid.$(p)Can upgrade factory machines, Bins, and Energy Cubes"
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:basic_tier_installer",
+      "link_recipe": true,
+      "text": "Upgrades block to basic tier. Used to turn machines into their factory variant."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:advanced_tier_installer",
+      "link_recipe": true,
+      "text": "Upgrades block to Advanced tier. Requires block to be Basic tier."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:elite_tier_installer",
+      "link_recipe": true,
+      "text": "Upgrades block to Elite tier. Requires block to be Advanced tier."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ultimate_tier_installer",
+      "link_recipe": true,
+      "text": "Upgrades block to Ultimate tier. Requires block to be Elite tier."
+    }
+  ]
+}

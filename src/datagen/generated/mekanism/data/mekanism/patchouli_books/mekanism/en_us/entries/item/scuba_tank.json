@@ -1,0 +1,23 @@
+{
+  "name": "item.mekanism.scuba_tank",
+  "category": "items_gear",
+  "icon": "mekanism:scuba_tank{\"HideFlags\":2}",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:scuba_tank{\"HideFlags\":2}",
+      "link_recipe": true,
+      "text": "A piece of equipment worn in the chest armor slot that provides underwater respiration when a $(l:item/scuba_mask)Scuba Mask$(/l) is worn. The Scuba Tank must be filled with Oxygen gas in order to function."
+    },
+    {
+      "type": "text",
+      "text": "When you first put on the Scuba Tank, its oxygen supply will be turned off. In order to use it underwater you must turn it on by using the $(k:key.mekanism.chest_mode) button. Also, you must have the Gas Mask equipped in the helmet armor slot or you won't be able to breathe and will start to drown."
+    },
+    {
+      "type": "text",
+      "text": "$(li)Any potion effect will instantly stop once you equip the Gas Mask and turn on the oxygen supply.$(li)Be sure to turn the oxygen supply OFF when you are above surface, otherwise you'll waste oxygen.$(li)Leave the oxygen supply on while underwater. You can't cheat to conserve oxygen by turning it on and off, because the oxygen will be consumed faster to refill the breath meter.$(li)The Scuba Tank will not work in Airless dimensions in some other mods, such as the outer space dimensions in Galacticraft (Moon, Mars, etc.).",
+      "title": "Tips"
+    }
+  ],
+  "read_by_default": true
+}

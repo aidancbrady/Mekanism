@@ -1,0 +1,16 @@
+{
+  "name": "gas.mekanism.sodium",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Sodium is a coolant for the fission reactor.  it has a higher heat capacity than water and is needed for larger and/or more active reactors."
+    },
+    {
+      "type": "text",
+      "text": "It is produced by splitting $(l:gas/brine)Brine$(/l) into Sodium and $(l:gas/chlorine)Chlorine$(/l) in an $(l:block/electrolytic_separator)Electrolytic Separator$(/l)"
+    }
+  ],
+  "read_by_default": true
+}

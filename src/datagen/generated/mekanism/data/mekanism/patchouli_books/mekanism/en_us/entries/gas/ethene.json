@@ -1,0 +1,16 @@
+{
+  "name": "gas.mekanism.ethene",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Ethylene is the fuel for our ultra-efficient Gas-Burning generator.  It is a byproduct of $(l:item/hdpe_pellet)HDPE (High-Density Polyethylene)$(/l)."
+    },
+    {
+      "type": "text",
+      "text": "It is produced by the $(l:block/pressurized_reaction_chamber)Pressurized Reaction Chamber$(/l) when turning $(l:item/bio_fuel)bio-fuel$(/l) into $(l:item/substrate)substrate$(/l), using $(l:gas/hydrogen)hydrogen$(/l) and water."
+    }
+  ],
+  "read_by_default": true
+}

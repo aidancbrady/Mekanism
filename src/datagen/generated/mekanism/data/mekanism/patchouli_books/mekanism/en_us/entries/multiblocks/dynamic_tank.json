@@ -1,0 +1,15 @@
+{
+  "name": "Dynamic Tank",
+  "category": "multiblocks",
+  "icon": "mekanism:dynamic_valve",
+  "pages": [
+    {
+      "type": "text",
+      "text": "The blocks Dynamic Tank, Dynamic Glass, and Dynamic Valve make up the multi-block that is the Dynamic Tank, a fluid storage structure that can hold a large amount of a single type of fluid.$(p)Dynamic Tanks can be made in any size from 3x3x3 to 18x18x18, and does not need to be a cube."
+    },
+    {
+      "type": "text",
+      "text": "A valid Dynamic Tank structure will flash with \"active redstone\" particles upon completion.$(p)Notes:$(li)All of the Dynamic Tank's borders must be made out of Dynamic Tank (not glass or valve)$(li)The tank's length, width, and height can be any number within the size limits - e.g. 3x4x5"
+    }
+  ]
+}

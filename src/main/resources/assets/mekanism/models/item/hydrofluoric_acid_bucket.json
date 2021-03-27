@@ -1,5 +1,0 @@
-{
-  "parent": "forge:item/bucket",
-  "loader": "forge:bucket",
-  "fluid": "mekanism:hydrofluoric_acid"
-}

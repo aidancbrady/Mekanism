@@ -1,0 +1,15 @@
+{
+  "name": "Tritium",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Tritium is another isotope of $(l:gas/hydrogen)Hydrogen$(/l), with two extra neturons.  It is used as fuel in the $(l:multiblocks/fusion_reactor)Fusion Reactor$(/l)."
+    },
+    {
+      "type": "text",
+      "text": "It can either be injected directly into the reactor along with $(l:chemicals/deuterium)Deuterium$(/l), or combined into $(l:chemicals/dt_fuel)D-T Fuel$(/l).  The latter is only useful if production is very high, see $(l:multiblocks/fusion_reactor)Fusion Reactor$(/l) for more information."
+    }
+  ]
+}

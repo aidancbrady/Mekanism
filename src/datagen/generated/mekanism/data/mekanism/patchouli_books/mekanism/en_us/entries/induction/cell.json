@@ -1,0 +1,45 @@
+{
+  "name": "Induction Cells",
+  "category": "blocks",
+  "icon": "mekanism:basic_induction_cell",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Induction Cells are components in the $(l:multiblocks/induction_matrix)Induction Matrix$(/l). Each cell increases the total energy storage of a Matrix. Note that this does not increase transfer rate; look to the $(l:induction/provider)Induction Providers$(/l) for that."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:basic_induction_cell",
+      "link_recipe": true,
+      "text": "Adds 8 GJ to the Matrix's capacity"
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:advanced_induction_cell",
+      "link_recipe": true,
+      "text": "Adds 64 GJ to the Matrix's capacity."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:elite_induction_cell",
+      "link_recipe": true,
+      "text": "Adds 512 GJ to the Matrix's capacity"
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ultimate_induction_cell",
+      "link_recipe": true,
+      "text": "Adds 4 TJ to the Matrix's capacity"
+    },
+    {
+      "type": "crafting",
+      "recipe": "mekanism:basic_induction_cell",
+      "recipe2": "mekanism:advanced_induction_cell"
+    },
+    {
+      "type": "crafting",
+      "recipe": "mekanism:elite_induction_cell",
+      "recipe2": "mekanism:ultimate_induction_cell"
+    }
+  ]
+}

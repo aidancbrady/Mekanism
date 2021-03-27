@@ -1,0 +1,6 @@
+{
+  "name": "Metals & Ores",
+  "description": "Ore/Metal processing based materials.",
+  "icon": "mekanism:ingot_osmium",
+  "parent": "items"
+}

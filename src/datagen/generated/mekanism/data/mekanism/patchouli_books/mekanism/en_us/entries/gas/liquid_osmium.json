@@ -1,0 +1,12 @@
+{
+  "name": "gas.mekanism.liquid_osmium",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Chemical form of Osmium used in the $(l:block/osmium_compressor)Osmium Compressor$(/l)."
+    }
+  ],
+  "read_by_default": true
+}

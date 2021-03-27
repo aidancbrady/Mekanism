@@ -1,0 +1,15 @@
+{
+  "name": "D-T Fuel",
+  "category": "chemicals",
+  "icon": "mekanism:ultimate_chemical_tank",
+  "pages": [
+    {
+      "type": "text",
+      "text": "D-T Fuel is used to fill the hohlraum, and can also be injected into a $(l:multiblocks/fusion_reactor)Fusion Reactor$(/l) for very high energy production"
+    },
+    {
+      "type": "text",
+      "text": "Direct D-T injection is only feasible for very high fuel production, see $(l:multiblocks/fusion_reactor)Fusion Reactor$(/l) for more details."
+    }
+  ]
+}

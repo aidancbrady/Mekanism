@@ -1,0 +1,27 @@
+{
+  "name": "Fluorite",
+  "category": "items_metal_and_ore",
+  "icon": "mekanism:fluorite_gem",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Fluorite (also called fluorspar) is the mineral form of calcium fluoride, CaF2. It belongs to the halide minerals group."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:fluorite_ore",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:dust_fluorite",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:fluorite_gem",
+      "link_recipe": true
+    }
+  ],
+  "read_by_default": true
+}

@@ -1,0 +1,14 @@
+{
+  "name": "item.mekanism.dust_quartz",
+  "category": "items_metal_and_ore",
+  "icon": "mekanism:dust_quartz",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:dust_quartz",
+      "link_recipe": true,
+      "text": "Crushed form of Quartz"
+    }
+  ],
+  "read_by_default": true
+}

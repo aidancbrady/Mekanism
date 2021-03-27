@@ -1,0 +1,52 @@
+{
+  "name": "Copper",
+  "category": "items_metal_and_ore",
+  "icon": "mekanism:ingot_copper",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Copper is a soft, malleable, and ductile metal with very high thermal and electrical conductivity. A freshly exposed surface of pure copper has a pinkish-orange color."
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:copper_ore",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:shard_copper",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:crystal_copper",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:dust_copper",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:dirty_dust_copper",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:clump_copper",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:ingot_copper",
+      "link_recipe": true
+    },
+    {
+      "type": "spotlight",
+      "item": "mekanism:nugget_copper",
+      "link_recipe": true
+    }
+  ],
+  "read_by_default": true
+}

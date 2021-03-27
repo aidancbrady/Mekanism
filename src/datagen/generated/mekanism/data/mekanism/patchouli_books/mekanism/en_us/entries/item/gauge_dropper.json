@@ -1,0 +1,18 @@
+{
+  "name": "item.mekanism.gauge_dropper",
+  "category": "items_gear",
+  "icon": "mekanism:gauge_dropper",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mekanism:gauge_dropper",
+      "link_recipe": true,
+      "text": "The Gauge Dropper is a really handy tool for managing the fluid/chemical inventories of machines/blocks.$(p)Open up the inventory of the machine, click on your Gauge Dropper to move it around the GUI. Hover over the substance you want to extract with the Gauge Dropper and left click. The substance should now be"
+    },
+    {
+      "type": "text",
+      "text": "in the Gauge Dropper (it can hold up to 16,000mB).$(p) You can hover over a fluid/gas gauge and right click to deposit the stored contents in your Gauge Dropper. $(p)Shift left click on a gauge to dump all of the content in said gauge. $(p)Shift right click on any block, while holding the Gauge Dropper, to dump all of the Gauge Dropper's contents."
+    }
+  ],
+  "read_by_default": true
+}
