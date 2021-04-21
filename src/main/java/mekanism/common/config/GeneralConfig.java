@@ -133,7 +133,7 @@ public class GeneralConfig extends BaseMekanismConfig {
         heatPerFuelTick = CachedDoubleValue.wrap(this, builder.comment("Amount of heat produced per fuel tick of a fuel's burn time in the Fuelwood Heater.")
               .define("heatPerFuelTick", 400D));
         resistiveHeaterEfficiency = CachedDoubleValue.wrap(this, builder.comment("How much heat energy is created from one Joule of regular energy in the Resistive Heater.")
-              .defineInRange("resistiveHeaterEfficiency", 0.6, 0, 1));
+              .defineInRange("resistiveHeaterEfficiency", 1.0, 0, 1));
         superheatingHeatTransfer = CachedDoubleValue.wrap(this, builder.comment("Amount of heat each Boiler heating element produces.")
               .define("superheatingHeatTransfer", 16_000_000D));
         tempUnit = CachedEnumValue.wrap(this, builder.comment("Displayed temperature unit in Mekanism GUIs.")
