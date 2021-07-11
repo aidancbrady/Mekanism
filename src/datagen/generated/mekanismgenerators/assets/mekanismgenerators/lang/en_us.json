@@ -175,6 +175,7 @@
   "turbine.mekanismgenerators.invalid_even_length": "Couldn't form, width and length of structure must be odd.",
   "turbine.mekanismgenerators.invalid_malformed_coils": "Couldn't form, Electromagnetic Coil arrangement is malformed. Coils must be connected to Rotational Complex and adjacently connected.",
   "turbine.mekanismgenerators.invalid_malformed_dispersers": "Couldn't form, Pressure Disperser arrangement is malformed. Dispersers must create complete horizontal layer surrounding Rotational Complex.",
+  "turbine.mekanismgenerators.invalid_missing_coils": "Couldn't form, no Electromagnetic Coils present.",
   "turbine.mekanismgenerators.invalid_missing_complex": "Couldn't form, no Rotational Complex present.",
   "turbine.mekanismgenerators.invalid_missing_disperser": "Couldn't form, expected but didn't find Pressure Disperser at %s.",
   "turbine.mekanismgenerators.invalid_rotors_not_contiguous": "Couldn't form, rotors are invalid (non-contiguous).",

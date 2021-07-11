@@ -163,6 +163,11 @@ public class TurbineValidator extends CuboidStructureValidator<TurbineMultiblock
             structure.coils = FormationProtocol.explore(startCoord, coord -> WorldUtils.getTileEntity(TileEntityElectromagneticCoil.class, world, chunkMap, coord) != null);
         }
 
+        //Terminate if coils don't exist
+        if (coils.isEmpty()) {
+            return FormationResult.fail(GeneratorsLang.TURBINE_INVALID_MISSING_COILS);
+        }
+
         if (coils.size() > structure.coils) {
             return FormationResult.fail(GeneratorsLang.TURBINE_INVALID_MALFORMED_COILS);
         }
