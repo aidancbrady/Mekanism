@@ -268,6 +268,7 @@
   "color.mekanism.white": "白色",
   "color.mekanism.yellow": "黄色",
   "command.mekanism.build.built": "%sの建設を終了しました。",
+  "command.mekanism.build.removed": "建物を削除しました。",
   "command.mekanism.chunk.clear": "%s個のチャンクをウォッチリストから削除しました。",
   "command.mekanism.chunk.flush": "%s個のチャンクをアンロードしました。",
   "command.mekanism.chunk.loaded": "チャンク(%s)をロードしました。",

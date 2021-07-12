@@ -1,4 +1,12 @@
 {
+  "assemblicator.mekanism.auto_mode_toggle": "Avto-Rejim: %s",
+  "assemblicator.mekanism.encode_formula": "Kodlama Formulu",
+  "assemblicator.mekanism.fill_empty": "Toru Doldur/Boşalt",
+  "assemblicator.mekanism.stock_control": "Stoka Nəzarət: %s",
+  "auto.mekanism.eject": "Avto-buraxma",
+  "auto.mekanism.pull": "Avto-çəkmə",
+  "auto.mekanism.sort": "Avto-sıralama",
+  "block.mekanism.advanced_bin": "Qabaqcıl Qab",
   "key.mekanism.description": "Show description",
   "key.mekanism.details": "Show details"
 }

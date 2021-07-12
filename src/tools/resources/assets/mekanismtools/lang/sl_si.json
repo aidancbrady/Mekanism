@@ -1,1 +1,14 @@
-{}
+{
+  "item.mekanismtools.bronze_axe": "Bronasta sekira",
+  "item.mekanismtools.bronze_boots": "Bronasti čevlji",
+  "item.mekanismtools.bronze_helmet": "Bronasta čelada",
+  "item.mekanismtools.bronze_hoe": "Bronasta motika",
+  "item.mekanismtools.bronze_leggings": "Bronaste hlače",
+  "item.mekanismtools.bronze_paxel": "Bronast Paxel",
+  "item.mekanismtools.bronze_pickaxe": "Bronast kramp",
+  "item.mekanismtools.bronze_shovel": "Bronasta lopata",
+  "item.mekanismtools.bronze_sword": "Bronast meč",
+  "item.mekanismtools.diamond_paxel": "Diamantni paxel",
+  "item.mekanismtools.gold_paxel": "Zlat paxel",
+  "item.mekanismtools.iron_paxel": "Železen paxel"
+}

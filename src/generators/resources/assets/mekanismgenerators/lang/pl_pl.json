@@ -46,7 +46,7 @@
   "description.mekanismgenerators.control_rod_assembly": "Zbiór prętów sterujących używany do zatrzymywania reakcji łańcuchowej rozszczepienia atomów. Należy układać na górze wieży zespołu paliwa rozczepialnego.",
   "description.mekanismgenerators.electromagnetic_coil": "Blok, który przemienia energię kinetyczną z kompleksu turbin rotacyjnych na użyteczną elektryczność. Może być umieszczony w dowolnym układzie powyżej twojego kompleksu rotacyjnego, o ile każdy z nich dotyka siebie nawzajem i samego kompleksu.",
   "description.mekanismgenerators.fission_fuel_assembly": "Zbiór prętów paliwowych używany do przechowywania paliwa rozczepialnego wewnątrz Reaktora rozczepiania atomów. Mogą być grupowane w pionie.",
-  "description.mekanismgenerators.fission_reactor_casing": "Stalowa obudowa pokryta ołowiem używana do tworzenia Reaktora rozczepiania atomów. Przeważnie odporna na ciepło i promieniowanie oraz bezpieczna!",
+  "description.mekanismgenerators.fission_reactor_casing": "Stalowa obudowa pokryta ołowiem używana do tworzenia reaktora rozczepiania atomów. Przeważnie odporna na ciepło i promieniowanie oraz bezpieczna!",
   "description.mekanismgenerators.fission_reactor_logic_adapter": "Blok, który może być używany do monitorowania lub kontrolowania Reaktora rozszczepiania atomów za pomocą redstone.",
   "description.mekanismgenerators.fission_reactor_port": "Port, który może zostać użyty w multibloku Reaktora rozczepiania atomów, aby transferować chłodziwo, paliwo oraz odpady.",
   "description.mekanismgenerators.fusion_reactor_controller": "Blok kontrolny dla całej struktury reaktora syntezy jądrowej.",
